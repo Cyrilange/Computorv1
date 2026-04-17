@@ -30,14 +30,32 @@ export function my_pow(base, exponent) {
 	return result;
   }
 
+  export function my_abs(x) {
+	return x < 0 ? -x : x;
+  }
+
+
+  export function my_trunc(x, decimals) {
+	const factor = my_pow(10, decimals);
+	return (x * factor | 0) / factor;
+  }
+
   export function my_sqrt(x) {
-	if(x <= -1) {
-		return NaN;
-	}
-	else if(x === -0) {
-		return 0;
-	}
-	else if(x === 0) {
-		return 0;
-	}
+	if (x === 0 && 1 / x === -Infinity) return -0;
+	if (x < 0) return NaN;
+	if (x === 0) return 0;
+	if (x === Infinity) return Infinity;
+  
+	let n = x;
+	let prev;
+	do {
+	  prev = n;
+	  n = (n + x / n) / 2;
+	} while (my_abs(n - prev) > 1e-10);
+	return n;
+  }
+
+
+  export function my_floor(x) {
+
   }
