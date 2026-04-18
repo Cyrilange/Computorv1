@@ -4,7 +4,8 @@
 	"author" : "Csalamit",
 	"type": "module",
 	"scripts": {
-	   "test": "node function.test.mjs"
+	   "test": "node function.test.mjs",
+	   "start" :" node polynomial/poly.js"
 	}
 	
   }

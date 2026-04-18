@@ -56,6 +56,3 @@ export function my_pow(base, exponent) {
   }
 
 
-  export function my_floor(x) {
-
-  }
