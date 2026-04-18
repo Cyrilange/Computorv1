@@ -1,11 +1,85 @@
-A polanomial is like a chain of a combination of multiple terms(exemple of terms : 6y or 3x2) link together using + or -
-usually beyond 3 terms we say polanomial (many)
-for 1 , monomial
-for 2, binomial
-for 3, trinomial
-3x^2 + x - 5 because for x we can say 1^x1 , for 5 we can say 5^x0( 5 is a constant term as his value always stay the same)
+_this project is made by csalamit_
+# Computor v1
 
-The degree of a term is determinane by the power of the variable part(in 5^x2, the degree is 2)
-if you have 8^y3^x2 , the degree would be 3 + 2 = 5
+## What is a Polynomial?
 
-when calculating a polanomial, you arrange the terms from the highest degree to the lowest
+A polynomial is an expression made of multiple terms linked together with `+` or `-` operators.
+
+**Examples of terms:** `6y`, `3x²`, `5`
+
+Depending on the number of terms, we use different names:
+- 1 term → **monomial**
+- 2 terms → **binomial**
+- 3 terms → **trinomial**
+- 4+ terms → **polynomial** (from the Greek *poly*, meaning "many")
+
+### Example
+
+`3x² + x - 5` can be written more explicitly as `3 * x^2 + 1 * x^1 + (-5) * x^0`
+
+Here `5` is a **constant term** — its value never changes regardless of `x`.
+
+---
+
+## Degree of a Term
+
+The degree of a term is determined by the exponent of its variable part.
+
+- In `5 * x^2`, the degree is `2`
+- In `4 * x^1`, the degree is `1`
+- In `7 * x^0`, the degree is `0` (constant)
+
+For multi-variable terms like `8y³x²`, the degree is the sum of all exponents: `3 + 2 = 5`.
+
+The **degree of a polynomial** is the highest degree among all its terms.
+
+---
+
+## Reduced Form
+
+When solving, everything is moved to the left side of the equation and terms are arranged from lowest to highest degree:
+
+`5 * X^0 + 4 * X^1 - 9.3 * X^2 = 1 * X^0` → `4 * X^0 + 4 * X^1 - 9.3 * X^2 = 0`
+
+---
+
+## Usage
+
+---
+in JS you use node so :
+### _node polynomial/poly.js_
+---
+because on my package.json I wrote a sript you can make it work by :
+
+
+### _npm start_
+---
+
+
+```bash
+(node polynomial/poly.js / npm start ) "5 * X^0 + 4 * X^1 - 9.3 * X^2 = 1 * X^0"
+# Or interactively:
+node polynomial/poly.js or npm start
+Enter equation: 5 * X^0 + 4 * X^1 - 9.3 * X^2 = 1 * X^0
+```
+
+Each term must follow the format: `coefficient * X^degree`
+
+---
+
+## Examples
+
+```bash
+$ node polynomial/poly.js "5 * X^0 + 4 * X^1 - 9.3 * X^2 = 1 * X^0" or npm start "5 * X^0 + 4 * X^1 - 9.3 * X^2 = 1 * X^0"
+Reduced form: 4 * X^0 + 4 * X^1 - 9.3 * X^2 = 0
+Polynomial degree: 2
+Discriminant is strictly positive, the two solutions are:
+0.905239
+-0.475131
+
+$ node polynomial/poly.js "5 * X^0 + 4 * X^1 = 4 * X^0" or npm start "5 * X^0 + 4 * X^1 = 4 * X^0"
+Reduced form: 1 * X^0 + 4 * X^1 = 0
+Polynomial degree: 1
+The solution is: -0.25
+
+```
