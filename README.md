@@ -33,6 +33,7 @@ For multi-variable terms like `8y³x²`, the degree is the sum of all exponents:
 
 The **degree of a polynomial** is the highest degree among all its terms.
 
+
 ---
 
 ## Reduced Form
@@ -42,6 +43,14 @@ When solving, everything is moved to the left side of the equation and terms are
 `5 * X^0 + 4 * X^1 - 9.3 * X^2 = 1 * X^0` → `4 * X^0 + 4 * X^1 - 9.3 * X^2 = 0`
 
 ---
+## solve
+
+### degree1
+_Linear Polynomials_ 
+
+### degree2
+_Quadratic Polynomials_
+
 
 ## Usage
 
@@ -82,4 +91,15 @@ Reduced form: 1 * X^0 + 4 * X^1 = 0
 Polynomial degree: 1
 The solution is: -0.25
 
+
+
+
+
 ```
+
+
+
+## Ressources
+[polynomial](https://www.mathsisfun.com/algebra/polynomials-solving.html)
+[degree1](https://www.mathsisfun.com/algebra/linear-equations.html)
+[degree2]()

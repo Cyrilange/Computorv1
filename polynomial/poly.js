@@ -1,7 +1,6 @@
 import { reduceEquation, formatOutput } from "../Utils/utils.parsing.js";
-import { getDegree } from "../Utils/utils_calcul.js";
-const BLUE = "\x1b[38;5;18m";
-const RESET = "\x1b[0m";
+import { getDegree, degree1, degree2 } from "../Utils/utils_calcul.js";
+
 
 export function getInput(callback) {
     const input = process.argv[2];
@@ -17,7 +16,7 @@ export function getInput(callback) {
 }
 
 export function solve(equation) {
-	process.stdout.write(BLUE);
+	
     const terms = reduceEquation(equation);
     process.stdout.write("Reduced form: ");
     console.log(formatOutput(terms));
@@ -27,17 +26,18 @@ export function solve(equation) {
 	if(degree > 2) {
 		console.log("The polynomial degree is strictly greater than 2, I can't solve.");
 	} else if(degree == 0) {
-		if(terms[0].coef >= 0) {
+		if(terms[0].coef == 0) {
 			console.log("Any real number is a solution.");
 		} else {
 			console.log("No solution.");
 		}
 	} else if(degree == 1){
-
+		process.stdout.write("The solution is:\n")
+		console.log(degree1(terms));
 	} else if(degree == 2) {
-
+		degree2(terms);
 	}
-	process.stdout.write(RESET);
+	process.exit(0);
 }
 
 getInput(solve);

@@ -1,6 +1,9 @@
 import { my_abs } from "./utils_math.js";
 
 export function parseTerm(term) {
+	if(!term.includes("*")) {
+        return { coef: parseFloat(term.trim()), degree: 0 };
+    }
 	const parts = term.split("*");
 	const coef = parseFloat(parts[0].trim().replace(" ", ""));
 	const degree = parseInt(parts[1].trim().split("^")[1].replace(" ", ""));
@@ -11,18 +14,21 @@ export function parseTerm(term) {
 export function separate(term) {
 	const part = term.split("=");
 	if (part.length !== 2) {
-		console.log("Error: missing the result");
+		console.log("Error:");
+		console.log("Term does not respect the form a ∗ ^xp");
+		console.log("exemple of accepted terms : 5 * X^0 + 4 * X^1 = 4 * X^0");
         process.exit(1);
 	}
 	const left = part[0].trim();
 	const right = part[1].trim();
 	if (left === "" || right === "") {
-        console.log("Error: missing the result");
+		console.log("Error:");
+        console.log("Term does not respect the form a ∗ ^xp");
+		console.log("exemple of accepted terms : 5 * X^0 + 4 * X^1 = 4 * X^0");
         process.exit(1);
     }
 	return { left , right};
 }
-
 export function tokenise(term) {
 	let current = "";
 	let result = [];

@@ -55,4 +55,9 @@ export function my_pow(base, exponent) {
 	return n;
   }
 
+ export function my_gcd(a, b) {
+    if(b == 0) { return a; }
+    return my_gcd(b, a % b);
+}
+
 
