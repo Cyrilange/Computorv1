@@ -1,4 +1,4 @@
-import { my_trunc, my_abs, my_pow , my_sqrt} from "./Utils/utils_math.js"
+import { my_trunc, my_abs, my_pow , my_sqrt, toFraction} from "./Utils/utils_math.js"
 import { parseTerm } from "./Utils/utils.parsing.js";
 
 function assert(name, result, expected) {
@@ -48,4 +48,9 @@ function assert(name, result, expected) {
 
 	assert("5 * X^2", parseTerm("5 * X^2"), { coef: 5, degree: 2 } )
 	assert("8 * X^1", parseTerm("8 * X^2"), { coef: 8, degree: 2 } )
+
+	console.log(toFraction(0.4));   // "2/5"
+	console.log(toFraction(0.25));  // "1/4"
+	console.log(toFraction(2));     // "2"
+	console.log(toFraction(-0.2));  // "-1/5"
 	

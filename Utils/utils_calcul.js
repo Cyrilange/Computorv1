@@ -1,4 +1,4 @@
-import {my_trunc, my_abs, my_pow , my_sqrt, my_gcd} from "./utils_math.js"
+import { my_pow , my_sqrt,toFraction} from "./utils_math.js"
 import {parseTerm, separate,tokenise, parseterms, reduceEquation,trie_degree,formatOutput } from "./utils.parsing.js"
 
 
@@ -34,17 +34,6 @@ export function degree2(terms) {
 		if(terms[i].degree === 0) { c = terms[i].coef; }  // c = degree 0
     }
 	let delta = my_pow(b, 2) - 4 * a * c;  
-	/*si Δ > 0 :
-    x1 = (-b + √Δ) / 2a
-    x2 = (-b - √Δ) / 2a
-
-si Δ = 0 :
-    x = -b / 2a
-
-si Δ < 0 :
-    x1 = -b/2a + i√(-Δ)/2a
-    x2 = -b/2a - i√(-Δ)/2a*/
-	//for(let i = 0; i < terms.length; i++) {
 		if(delta > 0) {
 			console.log("Discriminant is strictly positive, the two solutions are:");
 			let x1 = (-b + my_sqrt(delta)) / (2 * a);
@@ -58,13 +47,12 @@ si Δ < 0 :
 		}
 		else if (delta < 0){
 			console.log("Discriminant is strictly negative, the two complex solutions are:");
-			let real = -b / (2 * a);
-			let imag = my_sqrt(-delta) / (2 * a);
-			console.log(real + " + " + imag + "i");
-			console.log(real + " - " + imag + "i");
-
+			let real = toFraction(-b / (2 * a));
+			let imagParts = toFraction(my_sqrt(-delta) / (2 * a)).split("/");
+			let imag = imagParts[0] + "i/" + imagParts[1];
+			console.log(real + " + " + imag);
+			console.log(real + " - " + imag);
 		}
-	//}
 	return delta;
 
 }

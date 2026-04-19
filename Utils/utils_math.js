@@ -60,4 +60,16 @@ export function my_pow(base, exponent) {
     return my_gcd(b, a % b);
 }
 
+export function toFraction(num) {
+    let sign = num < 0 ? "-" : "";
+    num = my_abs(num);
+    let number = String(num).split(".");
+    let decimal = number[1];
+    if(!decimal) { return sign + String(num); }
+    let mult = my_pow(10, decimal.length);
+    let numerator = num * mult;
+    let denominator = mult;
+    let gcd = my_gcd(numerator, denominator);
+    return sign + (numerator / gcd) + "/" + (denominator / gcd);
+}
 

@@ -48,8 +48,28 @@ When solving, everything is moved to the left side of the equation and terms are
 ### degree1
 _Linear Polynomials_ 
 
+
+x = -b / a
+        if(terms[i].degree === 1) { a = terms[i].coef; }
+        if(terms[i].degree === 0) { b = terms[i].coef; }
+
 ### degree2
 _Quadratic Polynomials_
+
+formula :
+
+Δ = b² - 4ac
+
+if Δ > 0 :
+    x1 = (-b + √Δ) / 2a
+    x2 = (-b - √Δ) / 2a
+
+if Δ = 0 :
+    x = -b / 2a
+
+if Δ < 0 :
+    x1 = -b/2a + i√(-Δ)/2a
+    x2 = -b/2a - i√(-Δ)/2a
 
 
 ## Usage
