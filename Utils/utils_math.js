@@ -60,16 +60,26 @@ export function my_pow(base, exponent) {
     return my_gcd(b, a % b);
 }
 
-export function toFraction(num) {
+export function toFraction(num, maxDen = 1000) {
     let sign = num < 0 ? "-" : "";
-    num = my_abs(num);
-    let number = String(num).split(".");
-    let decimal = number[1];
-    if(!decimal) { return sign + String(num); }
-    let mult = my_pow(10, decimal.length);
-    let numerator = num * mult;
-    let denominator = mult;
-    let gcd = my_gcd(numerator, denominator);
-    return sign + (numerator / gcd) + "/" + (denominator / gcd);
-}
+    num = Math.abs(num);
 
+    let bestNum = 1;
+    let bestDen = 1;
+    let bestError = Math.abs(num - bestNum / bestDen);
+
+    for (let den = 1; den <= maxDen; den++) {
+        let nume = Math.round(num * den);
+        let error = Math.abs(num - nume / den);
+
+        if (error < bestError) {
+            bestNum = nume;
+            bestDen = den;
+            bestError = error;
+        }
+    }
+
+    let gcd = my_gcd(bestNum, bestDen);
+
+    return sign + (bestNum / gcd) + "/" + (bestDen / gcd);
+}
